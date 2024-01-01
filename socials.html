@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socials and Other Junk</title>
+    <style>
+        body {
+            background-color: rgb(19, 18, 18);
+            color: maroon;
+            text-align: center;
+            font-family: 'pixel', sans-serif;
+        }
+
+        @font-face {
+            font-family: 'pixel';
+            src: url('assets/pixel.ttf') format('truetype');
+            /* Add additional formats if needed, e.g., woff */
+            /* font-weight and font-style can also be specified */
+        }
+
+        .common-style {
+            font-family: 'pixel', sans-serif;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <h1 class="common-style">I have some social medias</h1>
+        <h2 class="common-style" style="color: rgba(128, 0, 0, 0.611);">Here those are</h2>
+        <img src="assets/github.png" id="github" width="200" height="200"><br><br>
+        <img src="assets/youtube.png" id="youtube" width="250" height="200"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <script>
+            document.getElementById("github").addEventListener("click", function(){
+                window.location.href = "https://github.com/peptobepto";
+            });
+            document.getElementById("youtube").addEventListener("click", function(){
+                window.location.href = "https://www.youtube.com/channel/UCr2yDYaCuYpOSpKshadg17Q";
+            });
+        </script>
+    </div>
+    
+</body>
+<footer>
+    <h3 class = "common-style" style = "color:pink">Theres nothing else here</h3>
+</footer>
+</html>
