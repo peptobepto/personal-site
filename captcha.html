@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <title>Captcha Fun</title>
+    <title>have fun?</title>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/fav/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/fav/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/fav/favicon-16x16.png">
@@ -33,7 +33,7 @@
              justify-content: center;
              margin: 0;
              text-align: center;
-             overflow-x: hidden; /* Add this to prevent horizontal scrolling */
+             overflow-x: hidden; 
  }
  @media (min-width: 601px) {
              body {
@@ -44,8 +44,7 @@
  @font-face {
      font-family: 'pixel';
      src: url('assets/pixel.ttf') format('truetype');
-     /* Add additional formats if needed, e.g., woff */
-     /* font-weight and font-style can also be specified */
+   
  }
  
  h1, h2, h3, li, button {
@@ -101,7 +100,7 @@
      background-color: pink;
  }
  
- /* Media Query for Mobile Devices */
+ 
  @media (max-width: 600px) {
      h1 {
          font-size: 20px;
@@ -119,8 +118,7 @@
          @font-face {
              font-family: 'pixel';
              src: url('assets/pixel.ttf') format('truetype');
-             /* Add additional formats if needed, e.g., woff */
-             /* font-weight and font-style can also be specified */
+             
          }
  
          .common-style {
@@ -143,12 +141,11 @@
             container.appendChild(captchaDiv);
 
             grecaptcha.render('captcha-' + index, {
-                'sitekey': '6Lflv0IpAAAAAAch9fyi_0b05JfrG9eHFwj3rWs8', // Replace with your actual site key
-                'size': 'normal', // Adjust as needed
+                'sitekey': '6Lflv0IpAAAAAAch9fyi_0b05JfrG9eHFwj3rWs8',
+                'size': 'normal', 
                 'callback': function() {
-                    // Callback function called when the user solves the CAPTCHA
+                    loadCaptch(index + 0);
                     loadCaptcha(index + 1);
-                    loadCaptcha(index + 2);
                 },
             });
         }
