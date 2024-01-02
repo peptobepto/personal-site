@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BEE50EBJN1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BEE50EBJN1');
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MY SUPER AWESOME WEBSITE HOMEPAGE!!!</title>
@@ -16,16 +27,22 @@
 
     <style>
        body {
+
     background-color: rgb(19, 18, 18);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    text-align: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            text-align: center;
+            overflow-x: hidden; /* Add this to prevent horizontal scrolling */
 }
+@media (min-width: 601px) {
+            body {
+                height: 100vh;
+            }
+        }
 
 @font-face {
     font-family: 'pixel';
