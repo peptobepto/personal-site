@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>Captcha Fun</title>
+</head>
+<body>
+    <h1>Captcha Fun</h1>
+
+    <div id="captcha-container"></div>
+
+    <script>
+        function loadCaptcha(index) {
+            const container = document.getElementById('captcha-container');
+            const captchaDiv = document.createElement('div');
+            captchaDiv.id = 'captcha-' + index;
+
+            container.appendChild(captchaDiv);
+
+            grecaptcha.render('captcha-' + index, {
+                'sitekey': 'YOUR_SITE_KEY', // Replace with your actual site key
+                'size': 'normal', // Adjust as needed
+            });
+        }
+
+        // Load 10 CAPTCHAs on page load
+        window.onload = function () {
+            for (let i = 0; i < 10; i++) {
+                loadCaptcha(i);
+            }
+        };
+    </script>
+</body>
+</html>
+
