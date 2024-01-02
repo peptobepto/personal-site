@@ -4,58 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MY SUPER AWESOME WEBSITE HOMEPAGE!!!</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/fav/favicon-16x16.png">
+    <link rel="manifest" href="assets/fav/site.webmanifest">
+    <link rel="mask-icon" href="assets/fav/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+
     <style>
-        body {
-            background-color: black;
-            color: white; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
+       body {
+    background-color: rgb(19, 18, 18);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'pixel';
+    src: url('assets/pixel.ttf') format('truetype');
+    /* Add additional formats if needed, e.g., woff */
+    /* font-weight and font-style can also be specified */
+}
+
+h1, h2, h3, li, button {
+    font-family: 'pixel', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: crimson;
+    font-size: 24px;
+}
+
+h2 {
+    border: 2px solid pink;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
+
+h3 {
+    border: 0;
+    border: green;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    color: pink;
+    font-size: large;
+}
+
+button {
+    background-color: orange;
+    color: rgb(0, 0, 0);
+    padding: 15px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: pink;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+
+        @font-face {
+            font-family: 'pixel';
+            src: url('assets/pixel.ttf') format('truetype');
+            /* Add additional formats if needed, e.g., woff */
+            /* font-weight and font-style can also be specified */
         }
 
-        h1 {
-            text-align: center;
-            color: crimson;
-        }
-
-        h2 {
-            border: 2px solid pink;
-            padding: 10px;
-            text-align: center;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 0; /* Remove border around the image */
-        }
-
-        h3 {
-            border: 0;
-            border: green;
-        }
-
-        ul {
-            list-style-type: none; /* Remove bullet points from the list */
-            padding: 0;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #45a049; /* Darker green on hover */
+        .common-style {
+            font-family: 'pixel', sans-serif;
         }
     </style>
 </head>
@@ -65,7 +120,7 @@
         <h2>It's pretty epic</h2><br><br><br>
     </div>
     <div>
-        <img src="assets/crash.gif" alt="super epic and exciting gif">
+        <img src="assets/GOGOGOGO.gif" alt="toothless hitting the most insane shmooves I have ever seen">
         <h3>Here's some stuff about me</h3>
         <ul>
             <li>I'm a senior in high school planning to study cybersecurity in university</li>
