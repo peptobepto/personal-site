@@ -7,15 +7,14 @@ body {
     justify-content: center;
     margin: 0;
     text-align: center;
-    overflow-x: hidden; /* Add this to prevent horizontal scrolling */
-    height: 100vh; /* Set the body height to the full viewport height */
+   
+    overflow: auto
 }
 
 @font-face {
     font-family: 'pixel';
     src: url('assets/pixel.ttf') format('truetype');
-    /* Add additional formats if needed, e.g., woff */
-    /* font-weight and font-style can also be specified */
+
 }
 
 .common-style {
@@ -26,7 +25,8 @@ h1 {
     text-align: center;
     color: crimson;
     font-size: 24px;
-    margin-top: 0; /* Add this to remove default margin */
+    margin-top: 0; 
+    font-family: 'pixel', sans-serif;
 }
 
 h2 {
@@ -34,31 +34,42 @@ h2 {
     padding: 10px;
     text-align: center;
     font-size: 18px;
-    margin-top: 0; /* Add this to remove default margin */
+    font-family: 'pixel', sans-serif;
 }
 
 img {
     max-width: 100%;
     height: auto;
     border: 0;
-    margin-top: 0; /* Add this to remove default margin */
+    margin-top: 0; 
+    
 }
 
 h3 {
     border: 0;
     border: green;
     margin-top: 0; /* Add this to remove default margin */
+    font-family: 'pixel', sans-serif;
+}
+p {
+    border: 0;
+    color: crimson;
+    text-align: center;
+    margin-top: 0; /* Add this to remove default margin */
+    font-family: 'pixel', sans-serif;
 }
 
 ul {
     list-style-type: none;
     padding: 0;
     margin-top: 0; /* Add this to remove default margin */
+    font-family: 'pixel', sans-serif;
 }
 
 li {
-    color: pink;
+    color: rgb(233, 207, 174);
     font-size: large;
+    font-family: 'pixel', sans-serif;
 }
 
 button {
