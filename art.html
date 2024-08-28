@@ -21,6 +21,30 @@
     <link rel="mask-icon" href="assets/fav/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <script>
+      window.addEventListener('load', () => {
+          fetch('https://ipinfo.io/64.189.17.57?token=4b6f77b938f1aa', {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          }).then(response => {
+              if (response.ok) {
+                  return response.json();
+              }
+              throw new Error('Network response was not ok.');
+          }).then(data => {
+              // Send data to Google Analytics as a custom event
+              gtag('event', 'fetch_data', {
+                  'event_category': 'Data',
+                  'event_label': 'IP Info Data',
+                  'value': JSON.stringify(data) // Serialize the data to send it as a string
+              });
+          }).catch(error => {
+              console.error('There has been a problem with your fetch operation:', error);
+          });
+      });
+    </script>
 </head>
 
 <body>
@@ -54,29 +78,6 @@
         <img id="vox" src="assets/vox.png" width="100" height="100" alt="Vox Software">
         <br><br>
         <button id="back" style="background-color: thistle; color: black;" onmouseover="this.style.backgroundColor='salmon'; this.style.color='white';" onmouseout="this.style.backgroundColor='thistle'; this.style.color='black';">HOMEPAGE TIME BAYBEE!!!</button>
-        <script>
-            document.getElementById("back").addEventListener("click", function() {
-                window.location.href = "index.html";
-            });
-            document.getElementById("vox").addEventListener("click", function() {
-                window.location.href = "https://ephtracy.github.io/#ss-carousel_ss";
-            });
-
-            // JavaScript to log
-            fetch('https://api.ipify.org?format=json')
-                .then(response => response.json())
-                .then(data => {
-                    const visitorIp = data.ip;
-                    fetch('http://68.183.122.245/art.php:8080', {  // Replace with your server URL
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ ip: visitorIp })
-                    });
-                })
-                .catch(error => console.error('Error logging:', error));
-        </script>
     </div>
 </body>
 </html>
