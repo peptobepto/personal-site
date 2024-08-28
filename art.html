@@ -23,27 +23,28 @@
     <meta name="theme-color" content="#ffffff">
     <script>
       window.addEventListener('load', () => {
-          fetch('https://ipinfo.io/64.189.17.57?token=4b6f77b938f1aa', {
+          fetch('https://api.ipify.org?format=jsonp&callback=getIP', {
               method: 'GET',
               headers: {
                   'Content-Type': 'application/json'
               }
-          }).then(response => {
-              if (response.ok) {
-                  return response.json();
-              }
-              throw new Error('Network response was not ok.');
-          }).then(data => {
-              // Send data to Google Analytics as a custom event
-              gtag('event', 'fetch_data', {
-                  'event_category': 'Data',
-                  'event_label': 'IP Info Data',
-                  'value': JSON.stringify(data) // Serialize the data to send it as a string
+          }).then(response => response.json())
+          .then(data => {
+              // Send IP info to Google Analytics
+              gtag('event', 'fetch_ip', {
+                  'event_category': 'IP Info',
+                  'event_label': 'Public IP',
+                  'value': data.ip // Send the IP as a custom value
               });
           }).catch(error => {
               console.error('There has been a problem with your fetch operation:', error);
           });
       });
+      
+      function getIP(json) {
+        // You can also log the IP to the console if needed
+        console.log("My public IP address is: ", json.ip);
+      }
     </script>
 </head>
 
