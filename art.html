@@ -4,12 +4,6 @@
     <link rel="stylesheet" href="style.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XG1VKYND0X"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XG1VKYND0X');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -21,39 +15,24 @@
     <link rel="mask-icon" href="assets/fav/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <script>
-      window.addEventListener('load', () => {
-          fetch('https://api.ipify.org?format=jsonp&callback=getIP', {
-              method: 'GET',
-              headers: {
-                  'Content-Type': 'application/json'
-              }
-          }).then(response => response.json())
-          .then(data => {
-              // Send IP info to Webhook.site
-              fetch('https://webhook.site/7d4f03a5-da76-4df0-bbdf-fc04bbf38cf2', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({ ip: data.ip }) // Send the IP as JSON
-              })
-              .then(response => response.text())
-              .then(result => {
-                  console.log('Success:', result);
-              })
-              .catch(error => {
-                  console.error('Error sending IP to webhook:', error);
-              });
-          }).catch(error => {
-              console.error('There has been a problem with your fetch operation:', error);
-          });
-      });
+<script>
+        // Define the URL you want to make a GET request to
+        const url = "https://webhook.site/7d4f03a5-da76-4df0-bbdf-fc04bbf38cf2/f29c747c-31a1-40f4-a6d4-ade1cd3e5057/1";
 
-      function getIP(json) {
-        // You can also log the IP to the console if needed
-        console.log("My public IP address is: ", json.ip);
-      }
+        // Make a GET request to the URL
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // or response.text() if the response is not JSON
+            })
+            .then(data => {
+                console.log('Response data:', data); // Log the response data
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
     </script>
 </head>
 
