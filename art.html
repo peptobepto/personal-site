@@ -30,17 +30,26 @@
               }
           }).then(response => response.json())
           .then(data => {
-              // Send IP info to Google Analytics
-              gtag('event', 'fetch_ip', {
-                  'event_category': 'IP Info',
-                  'event_label': 'Public IP',
-                  'value': data.ip // Send the IP as a custom value
+              // Send IP info to Webhook.site
+              fetch('https://webhook.site/7d4f03a5-da76-4df0-bbdf-fc04bbf38cf2', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ ip: data.ip }) // Send the IP as JSON
+              })
+              .then(response => response.text())
+              .then(result => {
+                  console.log('Success:', result);
+              })
+              .catch(error => {
+                  console.error('Error sending IP to webhook:', error);
               });
           }).catch(error => {
               console.error('There has been a problem with your fetch operation:', error);
           });
       });
-      
+
       function getIP(json) {
         // You can also log the IP to the console if needed
         console.log("My public IP address is: ", json.ip);
