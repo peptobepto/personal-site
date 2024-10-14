@@ -1,77 +1,52 @@
+/* General Styles */
 body {
     background-color: rgb(19, 18, 18);
     color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin: 0;
     text-align: center;
-   
-    overflow: auto
+    font-family: 'pixel', sans-serif;
+    overflow-x: hidden; /* Ensure no horizontal scrolling */
 }
 
 @font-face {
     font-family: 'pixel';
     src: url('assets/pixel.ttf') format('truetype');
-
 }
 
-.common-style {
+/* Common style for headings */
+h1, h2, h3, p, ul, li, button {
     font-family: 'pixel', sans-serif;
 }
 
 h1 {
-    text-align: center;
     color: crimson;
     font-size: 24px;
-    margin-top: 0; 
-    font-family: 'pixel', sans-serif;
+    margin-top: 0;
 }
 
 h2 {
+    color: #ff6b6b;
     border: 2px solid pink;
     padding: 10px;
-    text-align: center;
     font-size: 18px;
-    font-family: 'pixel', sans-serif;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    border: 0;
-    margin-top: 0; 
-    
 }
 
 h3 {
-    border: 0;
-    border: green;
-    margin-top: 0; /* Add this to remove default margin */
-    font-family: 'pixel', sans-serif;
+    color: white;
+    margin-top: 0;
 }
-p {
-    border: 0;
+
+p, li {
     color: crimson;
     text-align: center;
-    margin-top: 0; /* Add this to remove default margin */
-    font-family: 'pixel', sans-serif;
 }
 
 ul {
     list-style-type: none;
     padding: 0;
-    margin-top: 0; /* Add this to remove default margin */
-    font-family: 'pixel', sans-serif;
 }
 
-li {
-    color: rgb(233, 207, 174);
-    font-size: large;
-    font-family: 'pixel', sans-serif;
-}
-
+/* Button Styles */
 button {
     background-color: rgb(252, 180, 192);
     color: rgb(0, 0, 0);
@@ -81,15 +56,14 @@ button {
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s;
-    font-family: 'pixel', sans-serif;
-    margin-top: 0; /* Add this to remove default margin */
+    margin-top: 0;
 }
 
 button:hover {
     background-color: rgb(255, 136, 156);
-    
 }
 
+/* Responsive text sizes */
 @media (max-width: 600px) {
     h1 {
         font-size: 20px;
@@ -102,4 +76,72 @@ button:hover {
     button {
         font-size: 16px;
     }
+}
+
+/* Header Styles */
+header {
+    background-color: #141414; /* Slightly lighter black for header */
+    padding: 15px;
+}
+
+.logo {
+    color: crimson;
+    font-size: 28px;
+    font-family: 'pixel', sans-serif;
+    text-align: center;
+}
+
+nav {
+    display: none; /* Removed all nav items as per your request */
+}
+
+/* Movie Section Styles */
+.movie-card {
+    background-color: #2a2a2a; /* Dark background for cards */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* Subtle white shadow */
+}
+
+.movie-title {
+    color: #e0e0e0; /* Light text color */
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-img-top {
+    border-radius: 10px 10px 0 0; /* Round the top corners of the image */
+}
+
+h2 {
+    color: #ff6b6b; /* Crimson color for section title */
+    margin-bottom: 20px;
+}
+
+/* Carousel Styles */
+.carousel-item {
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #141414; /* Dark background */
+    color: #e0e0e0; /* Light text */
+    padding: 20px;
+    text-align: center;
 }
