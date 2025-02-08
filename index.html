@@ -1,258 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PEPTOBEPTO'S SITE</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/fav/favicon-32x32.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEPTOBEPTO'S SITE</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/fav/favicon-32x32.png">
+  <style>
+    /* Reset and basic styles */
+    body {
+      background-color: #f8f8f2;
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 40px;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+      padding-top: 100px; /* Extra top padding so content isn't hidden */
+    }
+    
+    h1, h2, h3, h4, h5, h6, p, ul, li, button, .subtitle, .about {
+      -webkit-font-smoothing: none !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      font-smooth: never !important;
+      text-shadow: none !important; /* Prevents any fake smoothing */
+    }
+    
+    h1 {
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transform: scale(4);
+      display: block;
+      margin-bottom: 20px;
+    }
+    
+    .subtitle {
+      font-size: 6px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+      transform: scale(4);
+      display: block;
+    }
+    
+    .main-gif {
+      max-width: 300px;
+      display: block;
+      margin: 40px auto;
+      border: 4px solid #333;
+    }
+    
+    .about {
+      background: #e8e8e2;
+      padding: 20px;
+      border: 2px solid #333;
+      display: inline-block;
+      text-align: left;
+      margin: 40px auto;
+    }
+    
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+    
+    .buttons {
+      margin-top: 80px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 200px;
+    }
+    
+    button {
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      background: none;
+      border: 2px solid #333;
+      padding: 15px 25px;
+      cursor: pointer;
+      font-size: 6px;
+      transform: scale(2.5);
+      display: inline-block;
+    }
+    
+    button:hover {
+      background: #333;
+      color: #fff;
+    }
+    
+    /* Vertical Chinese scrolling text (placed behind all elements) */
+    .vertical-text {
+      position: fixed;
+      z-index: -1; /* Behind all page content */
+      pointer-events: none;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      font-size: 2rem;
+      color: black;
+      white-space: nowrap;
+      animation: scrollUp 180s linear infinite;
+    }
+    
+    .vertical-text.left {
+      left: 5%;
+      top: 0;
+    }
+    
+    .vertical-text.right {
+      right: 5%;
+      top: 0;
+    }
+    
+    @keyframes scrollUp {
+      from { transform: translateY(0%); }
+      to   { transform: translateY(-100%); }
+    }
+    
+    /* Dynamic bouncing horizontal text (optional) */
+    .horizontal-text {
+      position: absolute;
+      z-index: -1; /* Behind all page content */
+      pointer-events: none;
+      font-size: 1.5rem;
+      color: black;
+      white-space: nowrap;
+      animation: dynamicBounce 12s linear infinite;
+    }
+    
+    @keyframes dynamicBounce {
+      0%   { transform: translate(0, 0); }
+      15%  { transform: translate(80vw, 10vh); }
+      30%  { transform: translate(20vw, 50vh); }
+      45%  { transform: translate(90vw, 30vh); }
+      60%  { transform: translate(40vw, 70vh); }
+      75%  { transform: translate(10vw, 90vh); }
+      90%  { transform: translate(60vw, 80vh); }
+      100% { transform: translate(100vw, 100vh); opacity: 0; }
+    }
+    
+    /* Mobile adjustments */
+    @media screen and (max-width: 768px) {
+      h1 {
+        transform: none;
+        font-size: 2rem;
+        letter-spacing: normal;
+        margin: 20px auto;
+      }
+      .subtitle {
+        transform: none;
+        font-size: 1.5rem;
+        margin: 10px auto 20px;
+      }
+      .main-gif {
+        max-width: 90%;
+        margin: 20px auto;
+      }
+      .about {
+        width: 90%;
+        margin: 20px auto;
+        box-sizing: border-box;
+      }
+      .buttons {
+        margin-top: 40px;
+        gap: 10px;
+      }
+      button {
+        transform: none;
+        font-size: 1rem;
+        padding: 10px 15px;
+      }
+      .vertical-text,
+      .horizontal-text {
+        font-size: 1rem;
+      }
+    }
+    
+    /* Music button styling */
+    #music-button {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(51, 51, 51, 0.8);
+      color: #fff;
+      border: 2px solid #fff;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      z-index: 2000;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>PEPTOBEPTO WEBSITE PART 2</h1>
-        <p class="subtitle">AN EVIL PLACE FOR EVIL SCHENANIGANS!!!</p>
-        
-        <img src="assets/GOGOGOGO.gif" alt="Toothless dancing" class="main-gif">
-        
-        <div class="about">
-            <h2>About Me</h2>
-            <ul>
-                <li>I'm a freshman in college studying Computer Science</li>
-                <li>I am evil and cannot be reasoned with</li>
-                <li>I know Python, JavaScript, a little Java, and I want to learn C</li>
-                <li>Goobert</li>
-            </ul>
-        </div>
-        
-        <div class="buttons">
-            <button onclick="location.href='captcha.html'">Infinite Captchas</button>
-            <button onclick="location.href='art.html'">My Voxel Art</button>
-            <button onclick="location.href='rights.html'">Reproductive Rights</button>
-        </div>
-    </div>
-    <div class="scroll-container">
-        <div class="vertical-text left">
-            海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo”<br><br>
-            海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo”
-        </div>
+  <!-- Music Start Button -->
+  <button id="music-button">click to hear my favorite songs (only works here)</button>
+  
+  <!-- Hidden audio element -->
+  <audio id="audio-player"></audio>
+  
+  <!-- Main website content -->
+  <div class="container">
+    <h1>PEPTOBEPTO WEBSITE PART 2</h1>
+    <p class="subtitle">AN EVIL PLACE FOR EVIL SCHENANIGANS!!!</p>
     
-        <div class="vertical-text right">
-            海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo”<br><br>
-            海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
-            是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
-            他的口号是“chumpy wumpy bobo”
-        </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-    const phrases = [
-        "skibidi toiliet was peak fiction",
-        "hatsune miku sucks at singing",
-        "fart",
-        "YAYAYAYAY",
-        "schizo insane ballsack website of doom",
-        "goochward",
-        "butt"
+    <img src="assets/GOGOGOGO.gif" alt="cat vs" class="main-gif">
+    
+    <div class="about">
+      <h2>About Me</h2>
+      <ul>
+        <li>I'm a freshman in college studying Computer Science</li>
+        <li>I am evil and cannot be reasoned with</li>
+        <li>I know Python, JavaScript, a little Java, and I want to learn C</li>
+        <li>Goobert</li>
+      </ul>
+    </div>
+    
+    <div class="buttons">
+      <button onclick="location.href='captcha.html'">Infinite Captchas</button>
+      <button onclick="location.href='art.html'">My Voxel Art</button>
+      <button onclick="location.href='rights.html'">Reproductive Rights</button>
+    </div>
+  </div>
+  
+  <!-- Chinese scrolling text (vertical) placed behind all elements -->
+  <div class="scroll-container">
+    <div class="vertical-text left">
+        海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo”
+    </div>
+  
+    <div class="vertical-text right">
+        海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo 海绵宝宝是一部很棒的电视节目，我非常喜欢它，我想吮吸帕特里克海星的粉红色头哦，
+        是的，他们应该添加一个新角色，名叫波波沃德，就像章鱼哥一样，但他是橙色的，
+        他的口号是“chumpy wumpy bobo”<br>
+    </div>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          const phrases = [
+              "skibidi toiliet was peak fiction",
+              "chumpy wumpy bobo and the freaky gooch fister",
+              "fart",
+              "YAYAYAYAY",
+              "schizo insane website of doom",
+              "monster trucks hell yeah",
+              "erm",
+              "butt",
+              "YOU AINT SEEN NOTHING YET"
+          ];
+  
+          function createMovingText() {
+              const textElement = document.createElement("div");
+              textElement.classList.add("horizontal-text");
+              textElement.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+              document.body.appendChild(textElement);
+  
+              // Random starting position
+              const startX = Math.random() * window.innerWidth;
+              const startY = Math.random() * window.innerHeight;
+              textElement.style.left = `${startX}px`;
+              textElement.style.top = `${startY}px`;
+  
+              // Remove after animation duration (12s)
+              setTimeout(() => {
+                  textElement.remove();
+              }, 12000);
+          }
+  
+          // Generate new horizontal text every 0.5 seconds
+          setInterval(createMovingText, 500);
+      });
+    </script>
+    
+  </div>
+  
+  <script>
+    /* Music Player Functionality */
+    const playlist = [
+      { title: "Song 1", src: "assets/song1.mp3" },
+      { title: "Song 2", src: "assets/song2.mp3" },
+      { title: "Song 3", src: "assets/song3.mp3" },
+      { title: "Song 4", src: "assets/song4.mp3" },
+      { title: "Song 5", src: "assests/song5.mp3" },
+      { title: "Song 6", src: "assets/song6.mp3" },
+      { title: "Song 7", src: "assets/song7.mp3" }
     ];
-
-    function createMovingText() {
-        const textElement = document.createElement("div");
-        textElement.classList.add("horizontal-text");
-        textElement.textContent = phrases[Math.floor(Math.random() * phrases.length)];
-        
-        document.body.appendChild(textElement);
-        
-        // Random starting position
-        const startX = Math.random() * window.innerWidth;
-        const startY = Math.random() * window.innerHeight;
-        textElement.style.left = `${startX}px`;
-        textElement.style.top = `${startY}px`;
-        
-        // Trigger animation
-        setTimeout(() => {
-            textElement.remove();
-        }, 5000);
+  
+    let currentSong = 0;
+    const audio = document.getElementById("audio-player");
+    const musicButton = document.getElementById("music-button");
+  
+    function loadSong(index) {
+      audio.src = playlist[index].src;
     }
-
-    // Generate text every 2 seconds
-    setInterval(createMovingText, 2000);
-});
-
-        </script>
-    </div>
-    
+  
+    function playMusic() {
+      audio.play();
+    }
+  
+    // When the button is clicked, load the current song, play it, and then hide the button.
+    musicButton.addEventListener("click", function() {
+      loadSong(currentSong);
+      playMusic();
+      musicButton.style.display = "none";
+    });
+  
+    // Optional: Auto-advance when a song ends.
+    audio.addEventListener("ended", function() {
+      currentSong = (currentSong + 1) % playlist.length;
+      loadSong(currentSong);
+      playMusic();
+    });
+  </script>
 </body>
 </html>

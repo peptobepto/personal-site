@@ -6,8 +6,8 @@ body {
     color: #333;
     text-align: center;
     margin: 0;
-    padding: 40px;
-    overflow: auto;
+    padding: 20px;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, li, button, .subtitle, .about {
@@ -18,26 +18,23 @@ h1, h2, h3, h4, h5, h6, p, ul, li, button, .subtitle, .about {
 }
 
 h1 {
-    font-size: 8px;
+    font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transform: scale(4);
-    display: block;
     margin-bottom: 20px;
 }
 
 .subtitle {
-    font-size: 6px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    transform: scale(4);
+    font-size: 1.5rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
     display: block;
 }
 
 .main-gif {
-    max-width: 300px;
+    max-width: 100%;
     display: block;
-    margin: 40px auto;
+    margin: 20px auto;
     border: 4px solid #333;
 }
 
@@ -47,7 +44,9 @@ h1 {
     border: 2px solid #333;
     display: inline-block;
     text-align: left;
-    margin: 40px auto;
+    margin: 20px auto;
+    width: 90%;
+    box-sizing: border-box;
 }
 
 ul {
@@ -56,11 +55,11 @@ ul {
 }
 
 .buttons {
-    margin-top: 80px;
+    margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 200px;
+    gap: 20px;
 }
 
 button {
@@ -68,10 +67,9 @@ button {
     font-weight: bold;
     background: none;
     border: 2px solid #333;
-    padding: 15px 25px;
+    padding: 10px 15px;
     cursor: pointer;
-    font-size: 6px;
-    transform: scale(2.5);
+    font-size: 1rem;
     display: inline-block;
 }
 
@@ -80,25 +78,33 @@ button:hover {
     color: #fff;
 }
 
+/* Ensure images don't overflow */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
-
+/* Scrolling text adjustments */
 .vertical-text {
-    position: absolute;
-    writing-mode: vertical-rl; /* Makes text vertical */
+    position: fixed;
+    writing-mode: vertical-rl;
     text-orientation: upright;
-    font-size: 2rem;
+    font-size: 1rem;
     color: black;
     white-space: nowrap;
     animation: scrollUp 180s linear infinite;
+    z-index: -1;
 }
 
 .left {
-    left: 5%;
+    left: 2%;
     top: 0;
 }
 
 .right {
-    right: 5%;
+    right: 2%;
     top: 0;
 }
 
@@ -111,29 +117,60 @@ button:hover {
     }
 }
 
+/* Updated flying text animation */
 .horizontal-text {
     position: absolute;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: black;
     white-space: nowrap;
-    animation: shootAcross 12s linear infinite;
+    animation: dynamicBounce 12s linear infinite;
+    z-index: -1;
 }
 
-@keyframes shootAcross {
+@keyframes dynamicBounce {
     0% {
         transform: translate(0, 0);
     }
-    25% {
-        transform: translate(80vw, 30vh);
+    15% {
+        transform: translate(80vw, 10vh);
     }
-    50% {
-        transform: translate(50vw, 70vh);
+    30% {
+        transform: translate(20vw, 50vh);
+    }
+    45% {
+        transform: translate(90vw, 30vh);
+    }
+    60% {
+        transform: translate(40vw, 70vh);
     }
     75% {
-        transform: translate(20vw, 40vh);
+        transform: translate(10vw, 90vh);
+    }
+    90% {
+        transform: translate(60vw, 80vh);
     }
     100% {
         transform: translate(100vw, 100vh);
         opacity: 0;
+    }
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    h1, .subtitle {
+        font-size: 1.5rem;
+    }
+    .main-gif, .about {
+        width: 90%;
+    }
+    .buttons {
+        gap: 10px;
+    }
+    button {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+    .vertical-text, .horizontal-text {
+        font-size: 1rem;
     }
 }
