@@ -15,25 +15,6 @@
     <link rel="mask-icon" href="assets/fav/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-<script>
-        // Define the URL you want to make a GET request to
-        const url = "https://webhook.site/7d4f03a5-da76-4df0-bbdf-fc04bbf38cf2/f29c747c-31a1-40f4-a6d4-ade1cd3e5057/1";
-
-        // Make a GET request to the URL
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json(); // or response.text() if the response is not JSON
-            })
-            .then(data => {
-                console.log('Response data:', data); // Log the response data
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
-    </script>
 </head>
 
 <body>
